@@ -1,0 +1,46 @@
+<div class="jumbotron jumbotron-home-banner jumbotron-fluid">
+    <div class="container">
+        <div class="jumbotron-content text-light">
+            <h1 class="display-3"></h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p class="lead text-center caption-text">Algorithmic challenges in smart grids: control, optimization & learning</p>
+            <p class="sub-caption-text">NSF CCF Algorithms in the Field (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1637598">award 1637598</a>)</p>
+        </div>
+    </div>
+</div>
+
+<div class="bg-gray mb-3">
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-12 my-3">
+                <div class="researches row">
+                    <section id="faculty" class="py-3">
+                        <h2 class="mt-3">Faculty</h2>
+                            {{#each model.facultyCollaborators as |person|}}
+                                {{component "current-member-card" model=person}}
+                            {{/each}}
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-3 py-3">
+    <p>
+    We are at the cusp of an historic transformation of our energy systems. Driven by the goal of sustainability, the management of the electricity grid is becoming more <em>distributed, dynamic, and open</em>. Over the coming decade the grid will grow into the largest and most complex example of the internet of things, with hundreds of millions of active endpoints that introduce frequent, random, and large fluctuations in supply, demand, voltage and frequency. However, there are significant challenges facing grid operators as this transformation begins. We propose that a key bottleneck in this transformation is <em>algorithmic</em>. In particular, the current algorithms managing the design and operation of the grid often do not scale or are not appropriate for such an enormous, distributed, dynamic, network of distributed energy resources. Further, the development of algorithms that do apply to this emerging smart grid requires pushing the boundaries of control, optimization, and learning.
+    </p>
+    <p>
+    Control problems in power systems are crucial and varied, e.g., frequency and voltage control. What makes these problems difficult is the physical laws that define the dynamics of the system at the timescales of seconds. Numerous power systems applications on a slower timescale (minutes, hours, and days) have at their core a constrained optimization problem called optimal power flow (OPF) problems. OPF problems are challenging because the power flow equations that define the slow timescale behavior of the grid are nonlinear, rendering OPF nonconvex. One of the biggest challenges in cyber-physical networks in general, and power systems in particular, is that data about the system are too <em>expensive</em> (or sometimes impossible) to obtain in real time. This leads to challenges for control and optimization because even simple control and optimization algorithms usually involve evaluating the objective value for many (even all) possible options, e.g., greedy algorithms.
+    </p>
+    <p>
+    Our goal is to <strong>tackle some of the algorithmic challenges underlying the transformation of the power grid</strong>, especially pertaining to control, optimization and learning.
+    </p>
+</div>

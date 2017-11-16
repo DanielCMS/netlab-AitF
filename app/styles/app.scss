@@ -1,0 +1,288 @@
+@import "custom";
+@import "ember-cli-bootstrap-4/bootstrap";
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $orbitron-font-stack;
+}
+
+a {
+  font-weight: $semi-bold-weight;
+}
+
+body {
+  font-family: $open-san-font-stack;
+  font-weight: 100;
+  font-style: normal;
+  font-variant: normal;
+}
+
+main {
+  background-color: #fff;
+  margin-bottom: 18em;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: -1000;
+}
+
+.bg-gray {
+  background-color: $gray-200;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+#highlightAccordion {
+  .item {
+    border-bottom: 1px solid $gray-400;
+    padding: 1em;
+
+    &:last-child {
+      border-bottom: 0px;
+    }
+  }
+}
+
+.jumbotron {
+  -webkit-background-position: center;
+  -moz-background-position: center;
+  -o-background-position: center;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-bottom: 1em;
+
+  .jumbotron-content {
+    margin-top: 2em;
+    min-height: 10em;
+  }
+}
+
+.jumbotron-home-banner {
+  background-image: url("images/banners/banner-1.jpg");
+}
+
+.jumbotron-people-banner {
+  background-image: url("images/banners/banner-2.jpg");
+  -webkit-background-position: top;
+  -moz-background-position: top;
+  -o-background-position: top;
+  background-position: top;
+}
+
+.jumbotron-publications-banner {
+  background-image: url("images/banners/banner-5.jpg");
+}
+
+.jumbotron-research-banner {
+  background-image: url("images/banners/banner-3.jpg");
+}
+
+.jumbotron-resources-banner {
+  background-image: url("images/banners/banner-4.jpg");
+}
+
+.logo {
+  &.netlab { max-height: 40px; }
+  &.caltech { max-height: 100px; }
+  &.eas { max-height: 1em; }
+}
+
+.logos > a { vertical-align: middle; }
+
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  .navbar-nav {
+    .nav-item {
+      text-transform: uppercase;
+
+      a { font-weight: $light-weight; }
+    }
+  }
+}
+.navbar.bg-dark {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.navbar-brand .logo {
+  height: 2em !important;
+}
+
+.navbar-margin {
+  margin-top: 5em;
+}
+
+.profile {
+  min-width: 15rem;
+
+  .research.card-body {
+    border-top: 1px solid $gray-200;
+  }
+  .card-image { overflow: hidden;}
+  .image {
+    min-width: 10rem;
+    min-height: 10rem;
+    background-size: cover;
+    background-position: center;
+
+    &.no-face {
+      background-image: url('http://placehold.it/400x600');
+    }
+
+    // faculty
+    &.steven-low {
+      background-image: url('images/people/faculty/steven-low-2.jpg');
+    }
+    &.adam-wierman {
+      background-image: url('images/people/faculty/adam-wierman.jpg');
+    }
+    &.vankat-chandrasekaran {
+      background-image: url('images/people/faculty/venkat-chandrasekaran.jpg');
+    }
+    &.yisong-yue {
+      background-image: url('images/people/faculty/yisong-yue.png');
+    }
+  }
+}
+
+.page-link {
+  cursor: pointer;
+}
+
+.page-item.active .page-link {
+  pointer-events: none;
+}
+
+#publications, #highlights {
+  font-size: 0.8em;
+}
+
+.researches{
+  .research {
+    overflow: hidden;
+    height: 20rem;
+
+    & > div { width: 100%; height: 100%; position: relative; }
+
+    .bg-psss, .bg-communication-networks, .bg-electric-vehicles, .bg-power-systems-dynamics {
+      background-size: cover;
+      background-position: center;
+    }
+
+    h3 {
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, .75);
+      color: #fff;
+      padding: 1rem;
+      // padding-right: 1.5em;
+      margin: 0;
+      width: 100%;
+      height: 4.3rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  }
+}
+
+.research {
+  .bg-cover {
+    min-height: 300px;
+  }
+}
+
+
+ul.custom {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding-left: 1.3em;
+
+    &:before {
+      color: #008aff;
+      font-family: FontAwesome;
+      display: inline-block;
+      margin-left: -1.3em;
+      width: 1.3em;
+    }
+
+    &.check:before {
+      content: "\f00c";
+    }
+    &.file:before {
+      content: "\f0f6";
+    }
+  }
+}
+
+.card-columns {
+  @include media-breakpoint-only(sm) {
+    column-count: 1;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 4;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+
+  #current-members .image {
+    min-width: 20rem !important;
+    min-height: 20rem !important;
+  }
+}
+@include media-breakpoint-down(md) {
+
+
+}
+@include media-breakpoint-up(lg) {
+  #highlights {
+    border-left: 1px solid $gray-500;
+  }
+
+  .profile-spacer {
+    display: none !important;
+  }
+}
+
+.caption-text {
+    font-family: "Open Sans", "Helvetica", sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.sub-caption-text {
+    font-family: "Open Sans", "Helvetica", sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+#faculty {
+    margin: auto;
+}
+
+.website-link {
+    margin-right: 2em;
+}
+
+.website-link:hover {
+    text-decoration: none;
+}
