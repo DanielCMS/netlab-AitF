@@ -94,12 +94,13 @@ footer {
   &.netlab { max-height: 40px; }
   &.caltech { max-height: 100px; }
   &.eas { max-height: 1em; }
+  &.rsrg { max-height: 55px; }
 }
 
 .logos > a { vertical-align: middle; }
 
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;

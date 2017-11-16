@@ -32,6 +32,6 @@ The source data is stored in `/app/services/store.js` where we have a publicatio
 ## How to Compile
 After all changes is done, run the following to compile the project:
 ```
-$ ember build
+$ ember build --environment production
 ```
 After this, all compiled files will be created in the folder `/dist`
