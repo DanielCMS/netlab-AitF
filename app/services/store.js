@@ -61,7 +61,7 @@ const people = {
     },
     {
       name: "Venkat Chandrasekaran",
-      position: "Professoor of Computing and Mathematical Sciences & Electrical Engineering",
+      position: "Professor of Computing and Mathematical Sciences & Electrical Engineering",
       imageClass: "vankat-chandrasekaran",
       education: "B.A., Rice University, 2005; B.S., 2005; M.S., Massachusetts Institute of Technology, 2007; Ph.D., 2011. Assistant Professor, Caltech, 2012-17; Professor, 2017-.",
       link: "http://www.eas.caltech.edu/people/venkatc"
