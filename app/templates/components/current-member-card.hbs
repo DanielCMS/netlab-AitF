@@ -3,7 +3,7 @@
     <div class="image {{profile-image-class model.imageClass}}"></div>
     <div class="card-body">
       <h4>
-        {{model.name}}
+          {{model.name}} {{#if model.affix}}<span class="name-affix">({{model.affix}})</span>{{/if}}
       </h4>
       <p class="card-text">
         {{model.position}}<br>

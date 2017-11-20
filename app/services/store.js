@@ -57,6 +57,7 @@ const people = {
       position: "Professor of Computing and Mathematical Sciences & Electrical Engineering",
       imageClass: "steven-low",
       education: "B.S., Cornell University, 1987; M.S., University of California, 1989; Ph.D., 1992. Associate Professor, Caltech, 2000-06; Professor, 2006-.",
+      affix: "PI",
       link: "http://netlab.caltech.edu"
     },
     {
