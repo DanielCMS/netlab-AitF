@@ -6,12 +6,12 @@ const Router = EmberRouter.extend({
     rootURL: config.rootURL,
 
     init() {
-	// Different from didTransistion hook so that sub-routes
-	// do not have to always bubble their didTransition event
-	this.on("didTransition", () => {
-	    window.scrollTo(0, 0);
-	});
-	this._super(...arguments);
+        // Different from didTransistion hook so that sub-routes
+        // do not have to always bubble their didTransition event
+        this.on("didTransition", () => {
+            window.scrollTo(0, 0);
+        });
+        this._super(...arguments);
     }
 });
 

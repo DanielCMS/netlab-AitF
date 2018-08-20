@@ -1,17 +1,17 @@
 import Service from '@ember/service';
 
 export default Service.extend({
-  page: 1,
+    page: 1,
 
-  nextPage() {
-    this.incrementProperty('page');
-  },
+    nextPage() {
+        this.incrementProperty('page');
+    },
 
-  previousPage() {
-    this.decrementProperty('page');
-  },
+    previousPage() {
+        this.decrementProperty('page');
+    },
 
-  goToPage(page) {
-    this.set("page", page);
-  }
+    goToPage(page) {
+        this.set("page", page);
+    }
 });
