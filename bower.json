@@ -1,6 +1,0 @@
-{
-  "name": "netlab",
-  "dependencies": {
-    "katex": "^0.8.3"
-  }
-}

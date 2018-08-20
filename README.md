@@ -29,9 +29,5 @@ Most html related stuff are in `/app/templates/*.hbs`. For instance to change re
 ## How to Add a New Publication
 The source data is stored in `/app/services/store.js` where we have a publication variable. Simply add a new entry following the existing format.
 
-## How to Compile
-After all changes is done, run the following to compile the project:
-```
-$ ember build --environment production
-```
-After this, all compiled files will be created in the folder `/dist`
+## How to Deploy
+To build and deploy the website, use the `deploy/deploy-to-cms.sh` script. You should make sure `USERNAME` and `PASSWORD` are defined in your environment variables, where `USERNAME` is the user name you use to log into `login.cms.caltech.edu`, and `PASSWORD` is the associated password. Also make sure [sshpass](https://sourceforge.net/projects/sshpass/) is installed in your machine before running the script.
