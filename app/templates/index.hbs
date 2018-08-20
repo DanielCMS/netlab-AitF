@@ -24,7 +24,7 @@
                 <div class="researches row">
                     <section id="faculty" class="py-3">
                         <h2 class="mt-3">Faculty</h2>
-                            {{#each model.facultyCollaborators as |person|}}
+                            {{#each people.facultyCollaborators as |person|}}
                                 {{component "current-member-card" model=person}}
                             {{/each}}
                     </section>

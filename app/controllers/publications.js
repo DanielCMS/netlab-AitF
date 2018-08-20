@@ -1,4 +1,7 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 
 const publications = [
     {"id":73439,"title":"Decentralized Optimal Frequency Control of Interconnected Power Systems with Transient Constraints","book_title":"55th Conference on Decision and Control (CDC), 2016","event_title":"IEEE 55th Conference on Decision and Control (CDC)","creators":[{"orcid":null,"name":{"lineage":null,"given":"Zhaojian","honourific":null,"family":"Wang"},"id":"Wang-Zhaojian"},{"orcid":null,"name":{"lineage":null,"given":"Feng","honourific":null,"family":"Liu"},"id":"Liu-Feng"},{"orcid":"0000-0001-6476-3048","name":{"lineage":null,"given":"Steven H.","honourific":null,"family":"Low"},"id":"Low-S-H"},{"orcid":"0000-0003-0539-8591","name":{"lineage":null,"given":"Changhong","honourific":null,"family":"Zhao"},"id":"Zhao-Changhong"},{"orcid":null,"name":{"lineage":null,"given":"Shengwei","honourific":null,"family":"Mei"},"id":"Mei-Shengwei"}],"isbn":"978-1-5090-1838-3","ispublished":"pub","date":"2016-12","pagerange":"664-671","datestamp":"2017-01-20 07:12:02","place_of_pub":"Piscataway, NJ","publisher":"IEEE","official_url":"http://resolver.caltech.edu/CaltechAUTHORS:20170111-135813725"},
@@ -22,7 +25,6 @@ const publications = [
 {"id":77530,"title":"Real-time Optimal Power Flow","creators":[{"orcid":"0000-0002-4921-8372","name":{"lineage":null,"given":"Yujie","honourific":null,"family":"Tang"},"id":"Tang-Yujie"},{"orcid":null,"name":{"lineage":null,"given":"Krishnamurthy","honourific":null,"family":"Dvijotham"},"id":"Dvijotham-K"},{"orcid":"0000-0001-6476-3048","name":{"lineage":null,"given":"Steven","honourific":null,"family":"Low"},"id":"Low-S-H"}],"ispublished":"pub","issn":"1949-3053","date":"2017-11","pagerange":"2963-2973","datestamp":"2017-05-17 22:14:39","publication":"IEEE Transactions on Smart Grid","publisher":"IEEE","official_url":"http://resolver.caltech.edu/CaltechAUTHORS:20170517-150114536","volume":8,"number":6},
 
 {"id":80095,"title":"Profit Maximizing Planning and Control of Battery Energy Storage Systems for Primary Frequency Control","creators":[{"orcid":null,"name":{"lineage":null,"given":"Ying Jun","honourific":null,"family":"Zhang"},"id":"Zhang-Ying-Jun"},{"orcid":"0000-0003-0539-8591","name":{"lineage":null,"given":"Changhong","honourific":null,"family":"Zhao"},"id":"Zhao-Changhong"},{"orcid":null,"name":{"lineage":null,"given":"Wanrong","honourific":null,"family":"Tang"},"id":"Tang-Wanrong"},{"orcid":"0000-0001-6476-3048","name":{"lineage":null,"given":"Steven H.","honourific":null,"family":"Low"},"id":"Low-S-H"}],"ispublished":"inpress","issn":"1949-3053","date":"2016-05-04","datestamp":"2017-08-10 18:25:54","publication":"IEEE Transactions on Smart Grid","publisher":"IEEE","official_url":"http://resolver.caltech.edu/CaltechAUTHORS:20170810-105250761"},
-
 {"id":82832,"title":"Optimal Load-side Control for Frequency Regulation in Smart Grids","creators":[{"orcid":"0000-0003-1568-1833","name":{"lineage":null,"given":"Enrique","honourific":null,"family":"Mallada"},"id":"Mallada-E"},{"orcid":"0000-0003-0539-8591","name":{"lineage":null,"given":"Changhong","honourific":null,"family":"Zhao"},"id":"Zhao-Changhong"},{"orcid":"0000-0001-6476-3048","name":{"lineage":null,"given":"Steven","honourific":null,"family":"Low"},"id":"Low-S-H"}],"ispublished":"inpress","issn":"0018-9286","date":"2017-06-08","datestamp":"2017-11-01 19:43:50","publication":"IEEE Transactions on Automatic Control","publisher":"IEEE","official_url":"http://resolver.caltech.edu/CaltechAUTHORS:20171101-115726975"},
 
 {"id":68953,"title":"Distributed Optimal Power Flow Algorithm for Radial Networks, I: Balanced Single Phase Case","creators":[{"name":{"lineage":null,"given":"Qiuyu","honourific":null,"family":"Peng"},"id":"Peng-Qiuyu"},{"name":{"lineage":null,"given":"Steven H.","honourific":null,"family":"Low"},"id":"Low-S-H"}],"ispublished":"inpress","issn":"1949-3053","date":"2016-03-24","datestamp":"2016-07-25 22:57:45","publication":"IEEE Transactions on Smart Grid","publisher":"IEEE","official_url":"http://resolver.caltech.edu/CaltechAUTHORS:20160711-103700266"},
@@ -32,7 +34,7 @@ const publications = [
 {"creators":[{"name":{"given":"Linqi","family":"Guo"}},{"name":{"given":"Steven","family":"Low"}}],"title":"Spectral characterization of controllability and observability for frequency regulation dynamics", "book_title": "Proceedings of 56th IEEE Conference on Decision and Control","place_of_pub":"Melbourne, Australia", "publisher":"IEEE", "date":"2017-12", "event_title": "56th Conference on Decision and Control (CDC)"},
 
 {"creators":[{"name":{"given":"Pengcheng","family":"You"}},{"name": {'given':'John', 'family':'Pang'}},{'name':{'given':'Minghua', 'family':"Chen"}},{"name":{"given":"Steven","family":"Low"}}, {"name": {"given":"Youxian", "family":"Sun"}}],"title":"Battery swapping assignment for electric cehicles: a bipartite matching approach", "book_title": "Proceedings of 56th IEEE Conference on Decision and Control","place_of_pub":"Melbourne, Australia", "publisher":"IEEE", "date":"2017-12", "event_title": "56th Conference on Decision and Control (CDC)"},
-    
+
 {"creators":[{"name":{"given":"John","family":"Doyle"}},{"name": {"given": "Nikolai", "family": "Matni"}},{"name": {"given":"James","family":"Anderson"}},{"name":{"given":"Steven","family":"Low"}}],"title":"A system level approach to controller synthesis", "book_title": "Proceedings of 56th IEEE Conference on Decision and Control","place_of_pub":"Melbourne, Australia", "publisher":"IEEE", "date":"2017-12", "event_title": "56th Conference on Decision and Control (CDC)"},
 
 {"creators":[{"name":{"given":"Linqi","family":"Guo"}},{"name": {"given":"Chen", "family":"Liang"}},{"name":{"given":"Steven","family":"Low"}}],"title":"Monotonicity Properties and Spectral Characterization of Power Redistribution in Cascading Failures", "book_title": "Proceedings of 55th Annual Allerton Conference on Communication, Control, and Computing","place_of_pub":"Monticello, IL", "publisher":"IEEE", "date":"2017-10", "event_title": "55th Annual Allerton Conference on Communication, Control, and Computing"},
@@ -51,46 +53,17 @@ const publications = [
 
 {"id":76616,"title":"Prices and Subsidies in the Sharing Economy","book_title":"Proceedings of the 26th International Conference on World Wide Web - WWW '17","event_title":"26th International Conference on World Wide Web - WWW '17","creators":[{"name":{"lineage":null,"given":"Zhixuan","honourific":null,"family":"Fang"},"id":"Fang-Zhixuan"},{"name":{"lineage":null,"given":"Longbo","honourific":null,"family":"Huang"},"id":"Huang-Longbo"},{"name":{"lineage":null,"given":"Adam","honourific":null,"family":"Wierman"},"id":"Wierman-A"}],"isbn":"978-1-4503-4913-0 ","ispublished":"pub","date":"2017-04","pagerange":"53-62","datestamp":"2017-04-17 22:08:19","place_of_pub":"New York, NY","publisher":"ACM","official_url":"http://resolver.caltech.edu/CaltechAUTHORS:20170417-144012765"}
 ];
-const people = {
-  facultyCollaborators: [
-    { name: "Steven H. Low",
-      position: "Professor of Computing and Mathematical Sciences & Electrical Engineering",
-      imageClass: "steven-low",
-      education: "B.S., Cornell University, 1987; M.S., University of California, 1989; Ph.D., 1992. Associate Professor, Caltech, 2000-06; Professor, 2006-.",
-      affix: "PI",
-      link: "http://netlab.caltech.edu"
-    },
-    {
-      name: "Venkat Chandrasekaran",
-      position: "Professor of Computing and Mathematical Sciences & Electrical Engineering",
-      imageClass: "vankat-chandrasekaran",
-      education: "B.A., Rice University, 2005; B.S., 2005; M.S., Massachusetts Institute of Technology, 2007; Ph.D., 2011. Assistant Professor, Caltech, 2012-17; Professor, 2017-.",
-      link: "http://www.eas.caltech.edu/people/venkatc"
-    },
-    {
-      name: "Adam Wierman",
-      position: "Professor of Computing and Mathematical Sciences",
-      imageClass: "adam-wierman",
-      education: "B.S., Carnegie Mellon University, 2001; M.S., 2004; Ph.D., 2007. Assistant Professor, Caltech, 2007-12; Professor, 2012-; Executive Officer, 2015-; Associate Director, 2015-16; Director, 2016-.",
-      link: "http://www.eas.caltech.edu/people/adamw"
-    },
-    {
-      name: "Yisong Yue",
-      position: "Assistant Professor of Computing and Mathematical Sciences",
-      imageClass: "yisong-yue",
-      education: "B.S., University of Illinois, 2005; Ph.D., Cornell University, 2010. Caltech, 2014-.",
-      link: "http://eas.caltech.edu/people/yyue"
-    }
-  ],
-};
 
+export default Controller.extend({
+  pubs: publications,
+  publications: service(),
+  limit: 10,
+  page: alias('publications.page'),
 
-export default Ember.Service.extend({
-  getPeople() {
-    return people;
-  },
+  paginatedItems: computed('page', 'pubs.[]', function() {
+    let i = (+this.get('page') - 1) * this.get("limit");
+    let j = i + this.get("limit");
 
-  getPublications() {
-    return publications;
-  }
+    return this.get('pubs').slice(i, j);
+  })
 });

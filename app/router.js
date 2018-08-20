@@ -3,18 +3,22 @@ import config from './config/environment';
 
 const Router = EmberRouter.extend({
     location: config.locationType,
-      rootURL: config.rootURL,
+    rootURL: config.rootURL,
 
-      // https://romulomachado.github.io/2016/12/20/resetting-scroll-on-route-changes.html
-      didTransition() {
-          this._super(...arguments);
-          window.scrollTo(0, 0);
-      }
+    init() {
+	// Different from didTransistion hook so that sub-routes
+	// do not have to always bubble their didTransition event
+	this.on("didTransition", () => {
+	    window.scrollTo(0, 0);
+	});
+	this._super(...arguments);
+    }
 });
 
 Router.map(function() {
     this.route("results");
     this.route("publications");
+    this.route("not-found", { path: "*" });
 });
 
 export default Router;

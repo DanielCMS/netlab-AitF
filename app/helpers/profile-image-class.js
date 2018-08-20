@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
+import { isPresent } from '@ember/utils';
 
 export function profileImageClass(params/*, hash*/) {
   let profileClass = params[0];
 
-  if (Ember.isPresent(profileClass)) {
+  if (isPresent(profileClass)) {
     return profileClass;
   }
   else {
@@ -11,4 +12,4 @@ export function profileImageClass(params/*, hash*/) {
   }
 }
 
-export default Ember.Helper.helper(profileImageClass);
+export default helper(profileImageClass);

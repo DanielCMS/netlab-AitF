@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function stringSlice(params/*, hash*/) {
   let str = params[0].toString();
@@ -12,4 +12,4 @@ export function stringSlice(params/*, hash*/) {
   }
 }
 
-export default Ember.Helper.helper(stringSlice);
+export default helper(stringSlice);

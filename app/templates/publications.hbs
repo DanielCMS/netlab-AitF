@@ -10,8 +10,18 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="display-4 mt-3">Recent Publications</h1>
-                {{list-pagination paginateBy=10 items=model}}
+            <h1 class="display-4 mt-3">Publications</h1>
+            {{list-pagination
+                paginateBy=(readonly limit)
+                total=(readonly pubs.length)
+                currentPage=(readonly page)
+            }}
+            {{publication-list model=paginatedItems}}
+            {{list-pagination
+                paginateBy=(readonly limit)
+                total=(readonly pubs.length)
+                currentPage=(readonly page)
+            }}
         </div>
     </div>
 </div>
